@@ -10,6 +10,10 @@ gem 'rails', '4.1.8'
 gem 'figaro'
 
 
+# Plugins
+gem 'decent_exposure'
+
+
 # Frontend
 gem 'sass-rails',   '~> 4.0.3'
 gem 'uglifier',     '>= 1.3.0'

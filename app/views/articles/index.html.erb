@@ -1,0 +1,25 @@
+<h1>Blog</h1>
+
+<h3>Articles</h3>
+
+<% if articles.any? %>
+  <ul>
+
+    <% for article in articles %>
+      <li>
+        <h3><%= link_to article.title, "#" %></h3>
+
+        <div class="entry">
+          <%= article.body %>
+        </div>
+      </li>
+    <% end %>
+
+  </ul>
+<% else %>
+
+  <div class="notice">
+    <h4>No articles!</h4>
+  </div>
+
+<% end %>
