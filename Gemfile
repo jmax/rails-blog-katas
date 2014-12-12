@@ -29,7 +29,9 @@ group :development do
   gem 'spring'
   gem 'quiet_assets'
   gem 'puma'
+  gem 'ffaker'
 end
+
 
 # Misc
 gem 'sdoc', '~> 0.4.0', group: :doc
