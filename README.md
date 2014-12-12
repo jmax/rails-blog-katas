@@ -15,7 +15,7 @@ Quick start
 If you satisfy all the dependencies you can clone the repository via git:
 
 ```
-$
+$ git@github.com:jmax/rails-blog-katas.git
 ```
 
 And then go to your project folder and run:
