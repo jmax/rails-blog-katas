@@ -1,5 +1,9 @@
 <h1>Blog</h1>
 
+<div class="call-to-action">
+  <%= link_to "Post a new Article", "/articles/new" %>
+</div>
+
 <h3>Articles</h3>
 
 <% if articles.any? %>
@@ -11,6 +15,11 @@
 
         <div class="entry">
           <%= article.body %>
+        </div>
+
+        <div class="edit-button">
+          <%= link_to "Edit", "/articles/#{article.id}/edit" %> <span> | </span>
+          <%= link_to "Remove", "/articles/#{article.id}", method: :delete, data: { confirm: "Are you sure?" } %>
         </div>
       </li>
     <% end %>
