@@ -1,0 +1,12 @@
+<div class="article element">
+  <h3><%= link_to article.title, article %></h3>
+
+  <div class="entry">
+    <%= article.body %>
+  </div>
+
+  <div class="edit-button">
+    <%= link_to "Edit", [:edit, article] %> <span> | </span>
+    <%= link_to "Remove", article, method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+</div>

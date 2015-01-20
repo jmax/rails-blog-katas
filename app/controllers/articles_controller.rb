@@ -1,47 +1,47 @@
 class ArticlesController < ApplicationController
-  expose(:articles) { Article.published.latest(10) }
+  expose(:articles)
+  expose(:article, attributes: :article_params)
 
-  def index; end
-
-  def new
-    @article = Article.new
+  def index
+    self.articles = Article.published.latest(10)
   end
 
-  def create
-    @article = Article.new(article_params)
+  def show; end
 
-    if @article.save
-      redirect_to "/articles", notice: "Article created!"
+  def new; end
+
+  def create
+    if article.save
+      redirect_to_index_with_message("Article created!")
     else
       render :new
     end
   end
 
-  def edit
-    @article = Article.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @article = Article.find(params[:id])
-
-    if @article.update_attributes(article_params)
-      redirect_to "/articles", notice: "Article updated!"
+    if article.update_attributes(article_params)
+      redirect_to_index_with_message("Article updated!")
     else
       render :edit
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
+    article.destroy
 
-    redirect_to "/articles", notice: "Article removed!"
+    redirect_to_index_with_message("Article removed!")
   end
 
 protected
 
   def article_params
     params.require(:article).permit(:title, :body, :published_at)
+  end
+
+  def redirect_to_index_with_message(msg)
+    redirect_to articles_path, notice: msg
   end
 
 end

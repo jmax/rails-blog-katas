@@ -1,30 +1,15 @@
 <h1>Blog</h1>
 
 <div class="call-to-action">
-  <%= link_to "Post a new Article", "/articles/new" %>
+  <%= link_to "Post a new Article", new_article_path %>
 </div>
 
 <h3>Articles</h3>
 
 <% if articles.any? %>
-  <ul>
-
-    <% for article in articles %>
-      <li>
-        <h3><%= link_to article.title, "#" %></h3>
-
-        <div class="entry">
-          <%= article.body %>
-        </div>
-
-        <div class="edit-button">
-          <%= link_to "Edit", "/articles/#{article.id}/edit" %> <span> | </span>
-          <%= link_to "Remove", "/articles/#{article.id}", method: :delete, data: { confirm: "Are you sure?" } %>
-        </div>
-      </li>
-    <% end %>
-
-  </ul>
+  <div class="articles list">
+    <%= render articles %>
+  </div>
 <% else %>
 
   <div class="notice">
