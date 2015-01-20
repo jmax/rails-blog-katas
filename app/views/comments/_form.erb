@@ -1,0 +1,21 @@
+<div class="comment form">
+  <hr>
+  <h3>Post your comment...</h3>
+
+  <%= form_for [ article, new_comment ] do |f| %>
+    <div class="field">
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+    </div>
+
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</div>

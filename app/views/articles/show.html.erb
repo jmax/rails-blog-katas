@@ -1,5 +1,13 @@
 <%= render article %>
 
+<%= render "comments/form" %>
+
+<div class="comments list">
+  <h3>Comments (<%= comments_count %>)</h3>
+
+  <%= render comments %>
+</div>
+
 <div class="links">
   <%= link_to "Back", articles_path %>
 </div>

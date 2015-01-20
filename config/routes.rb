@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   # patch  'articles/:id'      => 'articles#update'
   # delete 'articles/:id'      => 'articles#destroy'
 
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create]
+  end
 end

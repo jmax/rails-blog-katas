@@ -2,11 +2,17 @@ class ArticlesController < ApplicationController
   expose(:articles)
   expose(:article, attributes: :article_params)
 
+  expose(:comments)       { article.comments }
+  expose(:new_comment)    { comments.build }
+  expose(:comments_count) { comments.count }
+
   def index
     self.articles = Article.published.latest(10)
   end
 
-  def show; end
+  def show
+    self.comments = article.comments.most_recent
+  end
 
   def new; end
 
