@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120214308) do
+ActiveRecord::Schema.define(version: 20150309142452) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20150120214308) do
     t.integer  "views_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "featured_at"
   end
 
+  add_index "articles", ["featured_at"], name: "index_articles_on_featured_at"
   add_index "articles", ["published_at"], name: "index_articles_on_published_at"
 
   create_table "comments", force: true do |t|

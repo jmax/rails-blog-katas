@@ -7,6 +7,12 @@
 
   <div class="edit-button">
     <%= link_to "Edit", [:edit, article] %> <span> | </span>
-    <%= link_to "Remove", article, method: :delete, data: { confirm: "Are you sure?" } %>
+    <%= link_to "Remove", article, method: :delete, data: { confirm: "Are you sure?" } %> <span> | </span>
+
+    <% unless article.featured? %>
+      <%= link_to "Feature", [:feature, article], method: :put %>
+    <% else %>
+      <%= link_to "Unfeature", [:unfeature, article], method: :put %>
+    <% end %>
   </div>
 </div>

@@ -40,7 +40,21 @@ class ArticlesController < ApplicationController
     redirect_to_index_with_message("Article removed!")
   end
 
+  def feature
+    requested_article.feature!
+    redirect_to_index_with_message("Article featured!")
+  end
+
+  def unfeature
+    requested_article.unfeature!
+    redirect_to_index_with_message("Article unfeatured!")
+  end
+
 protected
+
+  def requested_article
+    @requested_article ||= Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :body, :published_at)

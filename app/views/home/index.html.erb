@@ -1,0 +1,11 @@
+<h1>Blog</h1>
+
+<h3>Featured</h3>
+
+<div class="list">
+  <% for article in featured_articles %>
+    <div class="article">
+      <h3><%= article.title %></h3>
+    </div>
+  <% end %>
+</div>
