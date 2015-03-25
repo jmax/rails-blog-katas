@@ -32,6 +32,22 @@ group :development do
   gem 'ffaker'
 end
 
+group :development, :test do
+  gem 'rspec-rails',        '~> 2.14.0'
+  gem "factory_girl_rails", '4.2.1'
+end
+
+
+# Test suite
+group :test do
+  gem 'capybara'
+  gem 'capybara-email'
+  gem 'database_cleaner',       '~> 1.3.0'
+  gem 'simplecov',            require: false
+  gem 'launchy'
+  gem 'shoulda-matchers',     require: false
+end
+
 
 # Misc
 gem 'sdoc', '~> 0.4.0', group: :doc

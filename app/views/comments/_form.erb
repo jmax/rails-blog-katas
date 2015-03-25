@@ -2,7 +2,15 @@
   <hr>
   <h3>Post your comment...</h3>
 
-  <%= form_for [ article, new_comment ] do |f| %>
+  <% if comment.errors.any? %>
+    <ul class="errors">
+        <% comment.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for [ article, comment ], remote: true do |f| %>
     <div class="field">
       <%= f.label :author %>
       <%= f.text_field :author %>

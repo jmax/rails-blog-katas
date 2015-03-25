@@ -2,14 +2,11 @@ class CommentsController < ApplicationController
   expose(:article)
   expose(:comments, ancestor: :article)
   expose(:comment, attributes: :comment_params)
+  expose(:success) { comment.save }
 
-  def create
-    if comment.save
-      redirect_to article, notice: "Comment has been posted!"
-    else
-      redirect_to article, notice: "We couldn't post your comment :("
-    end
-  end
+  respond_to :js
+
+  def create; end
 
 protected
 

@@ -1,11 +1,15 @@
 <%= render article %>
 
-<%= render "comments/form" %>
+<div id="commentForm">
+  <%= render "comments/form" %>
+</div>
 
 <div class="comments list">
   <h3>Comments (<%= comments_count %>)</h3>
 
-  <%= render comments %>
+  <div id="commentsList">
+    <%= render comments %>
+  </div>
 </div>
 
 <div class="links">

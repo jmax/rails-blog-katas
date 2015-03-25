@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   expose(:article, attributes: :article_params)
 
   expose(:comments)       { article.comments }
-  expose(:new_comment)    { comments.build }
+  expose(:comment)    { comments.build }
   expose(:comments_count) { comments.count }
 
   def index

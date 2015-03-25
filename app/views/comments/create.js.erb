@@ -1,0 +1,10 @@
+<% if success %>
+
+  $("<%= escape_javascript(render comment) %>").prependTo("#commentsList");
+  $("#commentForm form")[0].reset();
+
+<% else %>
+
+  $("#commentForm").html( $("<%= escape_javascript( render("comments/form") ) %>") )
+
+<% end %>
